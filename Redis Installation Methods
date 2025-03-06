@@ -1,0 +1,179 @@
+Redis Installation on Ubuntu
+#Subrahmanyeswarao Karri 
+#Sr Data Architect 
+
+This document provides step-by-step instructions to install Redis on an Ubuntu system. It covers installation from the official Ubuntu repository as well as building Redis from source.
+
+Prerequisites
+A fresh Ubuntu system or a system with root (sudo) privileges.
+An internet connection to download required packages and Redis.
+Method 1: Install Redis from Ubuntu's Official Repository
+Step 1: Update Package List
+First, update the local package index to ensure you have the latest repository information.
+
+bash
+Copy
+sudo apt update
+Step 2: Install Redis
+Use the apt package manager to install Redis.
+
+bash
+Copy
+sudo apt install redis-server
+Step 3: Start and Enable Redis Service
+Once installed, Redis should start automatically. To ensure Redis starts on boot, use the following commands:
+
+bash
+Copy
+sudo systemctl start redis
+sudo systemctl enable redis
+Step 4: Verify Redis is Running
+Check that Redis is running by checking its status.
+
+bash
+Copy
+sudo systemctl status redis
+You should see an output similar to the following if Redis is running:
+
+arduino
+Copy
+active (running)
+Step 5: Test Redis Installation
+Use the Redis CLI to verify Redis is working.
+
+bash
+Copy
+redis-cli
+Then, test Redis by running:
+
+bash
+Copy
+ping
+Redis should respond with:
+
+nginx
+Copy
+PONG
+Method 2: Install Redis from Source (for Custom Version)
+If you want to install the latest version of Redis or need custom configurations, you can install Redis from the source.
+
+Step 1: Install Required Dependencies
+Install the necessary build tools and libraries.
+
+bash
+Copy
+sudo apt update
+sudo apt install build-essential tcl
+Step 2: Download Redis
+Download the latest stable version of Redis. You can always visit the Redis download page for the latest release.
+
+bash
+Copy
+wget http://download.redis.io/redis-stable.tar.gz
+Step 3: Extract the Tarball
+Once the download is complete, extract the .tar.gz file.
+
+bash
+Copy
+tar xzvf redis-stable.tar.gz
+cd redis-stable
+Step 4: Build Redis
+Compile Redis using the make command.
+
+bash
+Copy
+make
+Step 5: (Optional) Run Redis Tests
+To ensure that Redis is compiled correctly, you can run the test suite.
+
+bash
+Copy
+make test
+Step 6: Install Redis
+After the build process completes, install Redis on your system.
+
+bash
+Copy
+sudo make install
+Step 7: Run Redis
+To run Redis manually, you can start it using:
+
+bash
+Copy
+redis-server
+Step 8: Run Redis in the Background
+To run Redis as a background service, you can specify a configuration file and start Redis in daemon mode.
+
+bash
+Copy
+redis-server /etc/redis/redis.conf
+Additional Configuration (Optional)
+Enable Redis to Start on Boot
+If you installed Redis from the source and want it to start automatically upon boot, you can configure Redis as a service using systemd.
+
+Create a Redis service file: Create a file in /etc/systemd/system/redis.service with the following content:
+
+ini
+Copy
+[Unit]
+Description=Redis In-Memory Data Store
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/redis-server /etc/redis/redis.conf
+ExecStop=/usr/local/bin/redis-cli shutdown
+Restart=always
+User=redis
+Group=redis
+
+[Install]
+WantedBy=multi-user.target
+Reload systemd and enable Redis:
+
+bash
+Copy
+sudo systemctl daemon-reload
+sudo systemctl enable redis
+Start the Redis service:
+
+bash
+Copy
+sudo systemctl start redis
+Troubleshooting
+1. Error: Refusing to operate on alias name or linked unit file
+If you see this error while enabling Redis, it means Redis is already enabled as a service or linked in a non-standard way. This is typically not a problem as Redis should be running.
+
+You can verify if Redis is running with:
+
+bash
+Copy
+sudo systemctl status redis
+If Redis is running as expected, you do not need to enable it again.
+
+2. Redis Doesn't Start Automatically
+If Redis doesn't start automatically on boot, you can try enabling the service again:
+
+bash
+Copy
+sudo systemctl enable redis
+3. Verifying Redis Is Running
+You can check the Redis status with:
+
+bash
+Copy
+sudo systemctl status redis
+Alternatively, you can test Redis by connecting to it via the CLI:
+
+bash
+Copy
+redis-cli
+ping
+If Redis is working correctly, you should get a response:
+
+nginx
+Copy
+PONG
+Conclusion
+You have successfully installed Redis on Ubuntu using either the official repository or from source. Redis should now be running and accessible at 127.0.0.1:6379. You can use it for caching, data storage, or other real-time applications.
+
+Make sure to review the Redis documentation for further configuration options and optimizations.
