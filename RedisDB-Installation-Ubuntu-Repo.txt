@@ -1,0 +1,147 @@
+root@dev-mongodb-poc1:~#
+root@dev-mongodb-poc1:~#
+root@dev-mongodb-poc1:~#
+root@dev-mongodb-poc1:~#
+root@dev-mongodb-poc1:~#
+root@dev-mongodb-poc1:~#
+root@dev-mongodb-poc1:~#
+root@dev-mongodb-poc1:~#
+root@dev-mongodb-poc1:~#
+root@dev-mongodb-poc1:~# ================================================================================^C
+root@dev-mongodb-poc1:~# Install Redis from Ubuntu's Official Repository^C
+root@dev-mongodb-poc1:~# ========================================================================^C
+root@dev-mongodb-poc1:~#
+root@dev-mongodb-poc1:~# sudo apt update
+Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Hit:2 http://in.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:3 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/8.0 InRelease
+Get:4 http://in.archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+Get:5 http://in.archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+Fetched 384 kB in 2s (187 kB/s)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+38 packages can be upgraded. Run 'apt list --upgradable' to see them.
+root@dev-mongodb-poc1:~#
+root@dev-mongodb-poc1:~# sudo apt install redis-server
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libjemalloc2 liblua5.1-0 liblzf1 lua-bitop lua-cjson redis-tools
+Suggested packages:
+  ruby-redis
+The following NEW packages will be installed:
+  libjemalloc2 liblua5.1-0 liblzf1 lua-bitop lua-cjson redis-server redis-tools
+0 upgraded, 7 newly installed, 0 to remove and 38 not upgraded.
+Need to get 1,273 kB of archives.
+After this operation, 5,725 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://in.archive.ubuntu.com/ubuntu jammy/universe amd64 libjemalloc2 amd64 5.2.1-4ubuntu1 [240 kB]
+Get:2 http://in.archive.ubuntu.com/ubuntu jammy/universe amd64 liblua5.1-0 amd64 5.1.5-8.1build4 [99.9 kB]
+Get:3 http://in.archive.ubuntu.com/ubuntu jammy/universe amd64 liblzf1 amd64 3.6-3 [7,444 B]
+Get:4 http://in.archive.ubuntu.com/ubuntu jammy/universe amd64 lua-bitop amd64 1.0.2-5 [6,680 B]
+Get:5 http://in.archive.ubuntu.com/ubuntu jammy/universe amd64 lua-cjson amd64 2.1.0+dfsg-2.1 [17.4 kB]
+Get:6 http://in.archive.ubuntu.com/ubuntu jammy/universe amd64 redis-tools amd64 5:6.0.16-1ubuntu1 [856 kB]
+Get:7 http://in.archive.ubuntu.com/ubuntu jammy/universe amd64 redis-server amd64 5:6.0.16-1ubuntu1 [45.9 kB]
+Fetched 1,273 kB in 5s (258 kB/s)
+Selecting previously unselected package libjemalloc2:amd64.
+(Reading database ... 117437 files and directories currently installed.)
+Preparing to unpack .../0-libjemalloc2_5.2.1-4ubuntu1_amd64.deb ...
+Unpacking libjemalloc2:amd64 (5.2.1-4ubuntu1) ...
+Selecting previously unselected package liblua5.1-0:amd64.
+Preparing to unpack .../1-liblua5.1-0_5.1.5-8.1build4_amd64.deb ...
+Unpacking liblua5.1-0:amd64 (5.1.5-8.1build4) ...
+Selecting previously unselected package liblzf1:amd64.
+Preparing to unpack .../2-liblzf1_3.6-3_amd64.deb ...
+Unpacking liblzf1:amd64 (3.6-3) ...
+Selecting previously unselected package lua-bitop:amd64.
+Preparing to unpack .../3-lua-bitop_1.0.2-5_amd64.deb ...
+Unpacking lua-bitop:amd64 (1.0.2-5) ...
+Selecting previously unselected package lua-cjson:amd64.
+Preparing to unpack .../4-lua-cjson_2.1.0+dfsg-2.1_amd64.deb ...
+Unpacking lua-cjson:amd64 (2.1.0+dfsg-2.1) ...
+Selecting previously unselected package redis-tools.
+Preparing to unpack .../5-redis-tools_5%3a6.0.16-1ubuntu1_amd64.deb ...
+Unpacking redis-tools (5:6.0.16-1ubuntu1) ...
+Selecting previously unselected package redis-server.
+Preparing to unpack .../6-redis-server_5%3a6.0.16-1ubuntu1_amd64.deb ...
+Unpacking redis-server (5:6.0.16-1ubuntu1) ...
+Setting up libjemalloc2:amd64 (5.2.1-4ubuntu1) ...
+Setting up lua-cjson:amd64 (2.1.0+dfsg-2.1) ...
+Setting up liblzf1:amd64 (3.6-3) ...
+Setting up lua-bitop:amd64 (1.0.2-5) ...
+Setting up liblua5.1-0:amd64 (5.1.5-8.1build4) ...
+Setting up redis-tools (5:6.0.16-1ubuntu1) ...
+Setting up redis-server (5:6.0.16-1ubuntu1) ...
+Created symlink /etc/systemd/system/redis.service ? /lib/systemd/system/redis-server.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/redis-server.service ? /lib/systemd/system/redis-server.service.
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.9) ...
+Scanning processes...
+Scanning candidates...
+Scanning linux images...
+
+Restarting services...
+Service restarts being deferred:
+ systemctl restart ModemManager.service
+ /etc/needrestart/restart.d/dbus.service
+ systemctl restart irqbalance.service
+ systemctl restart mongod.service
+ systemctl restart multipathd.service
+ systemctl restart networkd-dispatcher.service
+ systemctl restart nfs-mountd.service
+ systemctl restart nfsdcld.service
+ systemctl restart open-vm-tools.service
+ systemctl restart packagekit.service
+ systemctl restart polkit.service
+ systemctl restart rpc-statd.service
+ systemctl restart rpcbind.service
+ systemctl restart rsyslog.service
+ systemctl restart ssh.service
+ systemctl restart systemd-journald.service
+ systemctl restart systemd-logind.service
+ /etc/needrestart/restart.d/systemd-manager
+ systemctl restart systemd-networkd.service
+ systemctl restart systemd-resolved.service
+ systemctl restart systemd-timesyncd.service
+ systemctl restart systemd-udevd.service
+ systemctl restart udisks2.service
+ systemctl restart unattended-upgrades.service
+ systemctl restart upower.service
+ systemctl restart user@1002.service
+ systemctl restart vgauth.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+
+root@dev-mongodb-poc1:~#
+root@dev-mongodb-poc1:~# sudo systemctl start redis
+root@dev-mongodb-poc1:~# sudo systemctl enable redis
+Failed to enable unit: Refusing to operate on alias name or linked unit file: redis.service
+root@dev-mongodb-poc1:~# sudo systemctl status redis
+? redis-server.service - Advanced key-value store
+     Loaded: loaded (/lib/systemd/system/redis-server.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2025-03-06 10:22:06 IST; 43s ago
+       Docs: http://redis.io/documentation,
+             man:redis-server(1)
+   Main PID: 150443 (redis-server)
+     Status: "Ready to accept connections"
+      Tasks: 5 (limit: 9351)
+     Memory: 2.7M
+        CPU: 142ms
+     CGroup: /system.slice/redis-server.service
+             +-150443 "/usr/bin/redis-server 127.0.0.1:6379" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ">
+
+Mar 06 10:22:06 dev-mongodb-poc1 systemd[1]: Starting Advanced key-value store...
+Mar 06 10:22:06 dev-mongodb-poc1 systemd[1]: Started Advanced key-value store.
+
+root@dev-mongodb-poc1:~# redis-cli
+127.0.0.1:6379>
+127.0.0.1:6379> ping
+PONG
+127.0.0.1:6379>
+127.0.0.1:6379>
