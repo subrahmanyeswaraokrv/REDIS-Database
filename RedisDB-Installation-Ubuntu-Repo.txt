@@ -1,17 +1,12 @@
-root@dev-mongodb-poc1:~#
-root@dev-mongodb-poc1:~#
-root@dev-mongodb-poc1:~#
-root@dev-mongodb-poc1:~#
-root@dev-mongodb-poc1:~#
-root@dev-mongodb-poc1:~#
-root@dev-mongodb-poc1:~#
-root@dev-mongodb-poc1:~#
-root@dev-mongodb-poc1:~#
-root@dev-mongodb-poc1:~# ================================================================================^C
-root@dev-mongodb-poc1:~# Install Redis from Ubuntu's Official Repository^C
-root@dev-mongodb-poc1:~# ========================================================================^C
-root@dev-mongodb-poc1:~#
-root@dev-mongodb-poc1:~# sudo apt update
+# Install Redis from Ubuntu's Official Repository
+# Subrahmanyeswarao Karri 
+# Sr Data Architect 
+
+root@subrahmanym-redisdb:~# ====================================================== 
+root@subrahmanym-redisdb:~# Install Redis from Ubuntu's Official Repository 
+root@subrahmanym-redisdb:~# ======================================================
+root@subrahmanym-redisdb:~#
+root@subrahmanym-redisdb:~# sudo apt update
 Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
 Hit:2 http://in.archive.ubuntu.com/ubuntu jammy InRelease
 Hit:3 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/8.0 InRelease
@@ -22,8 +17,8 @@ Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
 38 packages can be upgraded. Run 'apt list --upgradable' to see them.
-root@dev-mongodb-poc1:~#
-root@dev-mongodb-poc1:~# sudo apt install redis-server
+root@subrahmanym-redisdb:~#
+root@subrahmanym-redisdb:~# sudo apt install redis-server
 Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
@@ -118,11 +113,11 @@ No user sessions are running outdated binaries.
 
 No VM guests are running outdated hypervisor (qemu) binaries on this host.
 
-root@dev-mongodb-poc1:~#
-root@dev-mongodb-poc1:~# sudo systemctl start redis
-root@dev-mongodb-poc1:~# sudo systemctl enable redis
+root@subrahmanym-redisdb:~#
+root@subrahmanym-redisdb:~# sudo systemctl start redis
+root@subrahmanym-redisdb:~# sudo systemctl enable redis
 Failed to enable unit: Refusing to operate on alias name or linked unit file: redis.service
-root@dev-mongodb-poc1:~# sudo systemctl status redis
+root@subrahmanym-redisdb:~# sudo systemctl status redis
 ? redis-server.service - Advanced key-value store
      Loaded: loaded (/lib/systemd/system/redis-server.service; enabled; vendor preset: enabled)
      Active: active (running) since Thu 2025-03-06 10:22:06 IST; 43s ago
@@ -136,10 +131,10 @@ root@dev-mongodb-poc1:~# sudo systemctl status redis
      CGroup: /system.slice/redis-server.service
              +-150443 "/usr/bin/redis-server 127.0.0.1:6379" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ">
 
-Mar 06 10:22:06 dev-mongodb-poc1 systemd[1]: Starting Advanced key-value store...
-Mar 06 10:22:06 dev-mongodb-poc1 systemd[1]: Started Advanced key-value store.
+Mar 06 10:22:06  dev-subrahmanym-redisdb systemd[1]: Starting Advanced key-value store...
+Mar 06 10:22:06  dev-subrahmanym-redisdb systemd[1]: Started Advanced key-value store.
 
-root@dev-mongodb-poc1:~# redis-cli
+root@subrahmanym-redisdb:~# redis-cli
 127.0.0.1:6379>
 127.0.0.1:6379> ping
 PONG
